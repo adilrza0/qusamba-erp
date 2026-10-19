@@ -1,0 +1,910 @@
+/* ==========================================================================
+   QUSAMBA ERP - LUXURY BANGLE MANUFACTURING & WHOLESALE DESIGN SYSTEM
+   Featuring Haute Joaillerie Neumorphic (Soft UI) Tactile Engine
+   ========================================================================== */
+
+:root {
+  --font-serif: 'Cinzel', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+}
+
+/* ==========================================================================
+   THEME 1: NEUMORPHIC LIGHT (DEFAULT SOFT TACTILE ALABASTER & GOLD)
+   ========================================================================== */
+:root,
+[data-theme="neumorphic"] {
+  --bg-primary: #e6ebf2;
+  --bg-secondary: #e6ebf2;
+  --bg-card: #e6ebf2;
+  --bg-card-hover: #edf2f8;
+  --bg-input: #e0e6ee;
+  --bg-modal: #e6ebf2;
+  --bg-subtle: #dde4ec;
+
+  /* Neumorphic Dual Directional Shadows */
+  --neu-shadow-dark: #b6bfcb;
+  --neu-shadow-light: #ffffff;
+  
+  --neu-raised: 6px 6px 14px var(--neu-shadow-dark), -6px -6px 14px var(--neu-shadow-light);
+  --neu-raised-sm: 3px 3px 8px var(--neu-shadow-dark), -3px -3px 8px var(--neu-shadow-light);
+  --neu-raised-lg: 12px 12px 28px var(--neu-shadow-dark), -12px -12px 28px var(--neu-shadow-light);
+  --neu-raised-hover: 8px 8px 18px var(--neu-shadow-dark), -8px -8px 18px var(--neu-shadow-light);
+  --neu-inset: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+  --neu-inset-deep: inset 5px 5px 10px var(--neu-shadow-dark), inset -5px -5px 10px var(--neu-shadow-light);
+  --neu-inset-focus: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light), 0 0 0 2px var(--gold-primary);
+
+  /* Borders & Bevels */
+  --border-subtle: rgba(182, 191, 203, 0.45);
+  --border-medium: #cbd5e1;
+  --border-gold: rgba(180, 131, 36, 0.35);
+  --border-gold-bright: rgba(180, 131, 36, 0.7);
+  --neu-bevel: 1px solid rgba(255, 255, 255, 0.75);
+
+  /* Gold Palette */
+  --gold-light: #926310;
+  --gold-primary: #b48324;
+  --gold-dark: #78510a;
+  --gold-gradient: linear-gradient(135deg, #d4af37 0%, #b48324 60%, #8c600c 100%);
+  --gold-gradient-soft: linear-gradient(135deg, rgba(180, 131, 36, 0.12) 0%, rgba(180, 131, 36, 0.03) 100%);
+  --gold-glow: 0 4px 16px rgba(180, 131, 36, 0.2);
+  --gold-glow-strong: 0 6px 24px rgba(180, 131, 36, 0.3);
+
+  /* Surfaces & Hero */
+  --surface-gradient: linear-gradient(145deg, #eaeff7, #dce1e9);
+  --sidebar-gradient: #e6ebf2;
+  --hero-gradient: linear-gradient(135deg, #e6ebf2 0%, #f7f3e8 60%, #f0e9d4 100%);
+  --active-nav-gradient: linear-gradient(145deg, #dee3ea, #eaf0f8);
+
+  /* State Accents */
+  --emerald: #059669;
+  --emerald-bg: #e2f4ec;
+  --emerald-border: #a7f3d0;
+  
+  --amber: #d97706;
+  --amber-bg: #fdf5e2;
+  --amber-border: #fde68a;
+  
+  --ruby: #e11d48;
+  --ruby-bg: #fde8eb;
+  --ruby-border: #fecdd3;
+
+  --sapphire: #0284c7;
+  --sapphire-bg: #e5f3fa;
+
+  /* Typography Colors */
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-gold: #926310;
+
+  --bg-radial: 
+    radial-gradient(circle at 10% 0%, rgba(180, 131, 36, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 100%, rgba(5, 150, 105, 0.04) 0%, transparent 40%),
+    #e6ebf2;
+
+  --shadow-sm: var(--neu-raised-sm);
+  --shadow-md: var(--neu-raised);
+  --shadow-lg: var(--neu-raised-lg);
+  --shadow-card: var(--neu-raised);
+}
+
+/* ==========================================================================
+   THEME 2: NEUMORPHIC DARK (OBSIDIAN SOFT TACTILE SLATE)
+   ========================================================================== */
+[data-theme="neumorphic-dark"] {
+  --bg-primary: #181b21;
+  --bg-secondary: #181b21;
+  --bg-card: #181b21;
+  --bg-card-hover: #1e2229;
+  --bg-input: #14161b;
+  --bg-modal: #181b21;
+  --bg-subtle: #131519;
+
+  /* Neumorphic Dark Shadows */
+  --neu-shadow-dark: #0e1014;
+  --neu-shadow-light: #242832;
+
+  --neu-raised: 6px 6px 14px var(--neu-shadow-dark), -6px -6px 14px var(--neu-shadow-light);
+  --neu-raised-sm: 3px 3px 8px var(--neu-shadow-dark), -3px -3px 8px var(--neu-shadow-light);
+  --neu-raised-lg: 12px 12px 28px #090a0d, -10px -10px 24px #282d38;
+  --neu-raised-hover: 8px 8px 18px #0a0c0f, -8px -8px 18px #2a303c;
+  --neu-inset: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light);
+  --neu-inset-deep: inset 5px 5px 10px var(--neu-shadow-dark), inset -5px -5px 10px var(--neu-shadow-light);
+  --neu-inset-focus: inset 3px 3px 6px var(--neu-shadow-dark), inset -3px -3px 6px var(--neu-shadow-light), 0 0 0 2px var(--gold-primary);
+
+  /* Borders & Bevels */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-gold: rgba(212, 175, 55, 0.4);
+  --border-gold-bright: rgba(212, 175, 55, 0.8);
+  --neu-bevel: 1px solid rgba(255, 255, 255, 0.05);
+
+  /* Gold Palette in Dark Mode */
+  --gold-light: #fbbf24;
+  --gold-primary: #eab308;
+  --gold-dark: #ca8a04;
+  --gold-gradient: linear-gradient(135deg, #facc15 0%, #eab308 60%, #a16207 100%);
+  --gold-gradient-soft: linear-gradient(135deg, rgba(234, 179, 8, 0.16) 0%, rgba(234, 179, 8, 0.03) 100%);
+  --gold-glow: 0 4px 20px rgba(234, 179, 8, 0.3);
+  --gold-glow-strong: 0 6px 30px rgba(234, 179, 8, 0.45);
+
+  /* Surfaces & Hero */
+  --surface-gradient: linear-gradient(145deg, #1b1e25, #15181e);
+  --sidebar-gradient: #181b21;
+  --hero-gradient: linear-gradient(135deg, #181b21 0%, #201e1a 60%, #262116 100%);
+  --active-nav-gradient: linear-gradient(145deg, #15171d, #1c2027);
+
+  /* State Accents */
+  --emerald: #10b981;
+  --emerald-bg: rgba(16, 185, 129, 0.14);
+  --emerald-border: rgba(16, 185, 129, 0.35);
+
+  --amber: #f59e0b;
+  --amber-bg: rgba(245, 158, 11, 0.14);
+  --amber-border: rgba(245, 158, 11, 0.35);
+
+  --ruby: #f43f5e;
+  --ruby-bg: rgba(244, 63, 94, 0.14);
+  --ruby-border: rgba(244, 63, 94, 0.35);
+
+  --sapphire: #38bdf8;
+  --sapphire-bg: rgba(56, 189, 248, 0.14);
+
+  /* Typography Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-gold: #fbbf24;
+
+  --bg-radial: 
+    radial-gradient(circle at 10% 0%, rgba(234, 179, 8, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 100%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
+    #181b21;
+
+  --shadow-sm: var(--neu-raised-sm);
+  --shadow-md: var(--neu-raised);
+  --shadow-lg: var(--neu-raised-lg);
+  --shadow-card: var(--neu-raised);
+}
+
+/* ==========================================================================
+   THEME 3: CLASSIC WHITE (ORIGINAL HAUTE JOAILLERIE FLAT LIGHT)
+   ========================================================================== */
+[data-theme="classic"] {
+  --bg-primary: #f6f7f9;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafbfc;
+  --bg-input: #ffffff;
+  --bg-modal: #ffffff;
+  --bg-subtle: #f1f5f9;
+
+  --neu-shadow-dark: rgba(0, 0, 0, 0.05);
+  --neu-shadow-light: transparent;
+  --neu-raised: 0 1px 3px rgba(0, 0, 0, 0.05), 0 10px 20px -5px rgba(0, 0, 0, 0.02);
+  --neu-raised-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --neu-raised-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.08);
+  --neu-raised-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+  --neu-inset: none;
+  --neu-inset-deep: none;
+  --neu-inset-focus: 0 0 0 3px rgba(180, 131, 36, 0.16);
+  --neu-bevel: 1px solid #e2e8f0;
+
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-gold: rgba(180, 131, 36, 0.3);
+  --border-gold-bright: rgba(180, 131, 36, 0.65);
+
+  --gold-light: #926310;
+  --gold-primary: #b48324;
+  --gold-dark: #78510a;
+  --gold-gradient: linear-gradient(135deg, #d4af37 0%, #b48324 60%, #8c600c 100%);
+  --gold-gradient-soft: linear-gradient(135deg, rgba(180, 131, 36, 0.08) 0%, rgba(180, 131, 36, 0.02) 100%);
+  --gold-glow: 0 4px 16px rgba(180, 131, 36, 0.12);
+  --gold-glow-strong: 0 6px 24px rgba(180, 131, 36, 0.2);
+
+  --emerald: #059669;
+  --emerald-bg: #ecfdf5;
+  --emerald-border: #a7f3d0;
+  --amber: #d97706;
+  --amber-bg: #fffbeb;
+  --amber-border: #fde68a;
+  --ruby: #e11d48;
+  --ruby-bg: #fff1f2;
+  --ruby-border: #fecdd3;
+  --sapphire: #0284c7;
+  --sapphire-bg: #f0f9ff;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-gold: #926310;
+
+  --bg-radial: 
+    radial-gradient(circle at 10% 0%, rgba(180, 131, 36, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 100%, rgba(5, 150, 105, 0.03) 0%, transparent 40%),
+    #f6f7f9;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-image: var(--bg-radial);
+  background-attachment: fixed;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-subtle);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neu-shadow-dark);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY UTILITIES
+   ========================================================================== */
+
+h1, h2, h3, .brand-font {
+  font-family: var(--font-serif);
+  letter-spacing: 0.02em;
+}
+
+.text-gold {
+  color: var(--gold-primary);
+}
+
+.gold-gradient-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   TACTILE NEUMORPHIC BUTTONS
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  border-radius: var(--radius-md);
+  border: var(--neu-bevel);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.985);
+  box-shadow: var(--neu-inset);
+}
+
+.btn-primary {
+  background: var(--gold-gradient);
+  color: #ffffff;
+  border: 1px solid var(--gold-dark);
+  box-shadow: var(--neu-raised-sm), 0 2px 8px rgba(180, 131, 36, 0.25);
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.06);
+  box-shadow: var(--neu-raised), var(--gold-glow);
+}
+
+.btn-primary:active {
+  box-shadow: inset 3px 3px 6px rgba(120, 81, 10, 0.5), inset -2px -2px 4px rgba(255, 255, 255, 0.3);
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: var(--neu-bevel);
+  box-shadow: var(--neu-raised-sm);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-card-hover);
+  box-shadow: var(--neu-raised);
+}
+
+.btn-secondary:active {
+  box-shadow: var(--neu-inset);
+  transform: translateY(1px) scale(0.985);
+}
+
+.btn-outline {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  box-shadow: var(--neu-raised-sm);
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--gold-primary);
+  box-shadow: var(--neu-raised);
+}
+
+.btn-outline:active {
+  box-shadow: var(--neu-inset);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: var(--neu-inset);
+}
+
+.btn-ghost:active {
+  box-shadow: var(--neu-inset-deep);
+}
+
+.btn-danger {
+  background: var(--ruby-bg);
+  border: 1px solid var(--ruby-border);
+  color: var(--ruby);
+  box-shadow: var(--neu-raised-sm);
+}
+
+.btn-danger:hover {
+  background: var(--ruby);
+  color: #fff;
+  box-shadow: var(--neu-raised);
+}
+
+.btn-danger:active {
+  box-shadow: var(--neu-inset);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-icon {
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   CARVED NEUMORPHIC FORM CONTROLS
+   ========================================================================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.form-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.form-label .required {
+  color: var(--ruby);
+  margin-left: 2px;
+}
+
+.form-control, .form-select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-family: var(--font-sans);
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border: var(--neu-bevel);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neu-inset);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--gold-primary);
+  box-shadow: var(--neu-inset-focus);
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   EXTRUDED NEUMORPHIC CARDS & PANELS
+   ========================================================================== */
+
+.card {
+  background-color: var(--bg-card);
+  border: var(--neu-bevel);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--neu-raised);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: var(--neu-raised-hover);
+}
+
+.card-gold-accent {
+  border-top: 3px solid var(--gold-primary);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   EMBOSSED JEWEL BADGES & SIZE PILLS
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: var(--neu-raised-sm);
+  border: var(--neu-bevel);
+}
+
+.badge-gold {
+  background: var(--gold-gradient-soft);
+  color: var(--gold-light);
+  border: 1px solid var(--border-gold);
+}
+
+.badge-emerald {
+  background: var(--emerald-bg);
+  color: var(--emerald);
+  border: 1px solid var(--emerald-border);
+}
+
+.badge-amber {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border: 1px solid var(--amber-border);
+}
+
+.badge-ruby {
+  background: var(--ruby-bg);
+  color: var(--ruby);
+  border: 1px solid var(--ruby-border);
+}
+
+.badge-sapphire {
+  background: var(--sapphire-bg);
+  color: var(--sapphire);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+/* Bangle Size Badges */
+.size-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.76rem;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background-color: var(--bg-card);
+  border: var(--neu-bevel);
+  box-shadow: var(--neu-raised-sm);
+  color: var(--text-secondary);
+}
+
+.size-badge.has-stock {
+  box-shadow: var(--neu-raised-sm), inset 0 0 0 1px var(--border-gold);
+  color: var(--gold-light);
+  background: var(--gold-gradient-soft);
+}
+
+.size-badge.zero-stock {
+  box-shadow: var(--neu-inset);
+  color: var(--ruby);
+  background: var(--ruby-bg);
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   NEUMORPHIC DATA TABLES
+   ========================================================================== */
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.88rem;
+}
+
+.table th {
+  background-color: var(--bg-subtle);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 13px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  vertical-align: middle;
+}
+
+.table tr:hover td {
+  background-color: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Sticky Action Column for wide tables */
+.table th.sticky-action-col,
+.table td.sticky-action-col {
+  position: sticky;
+  right: 0;
+  background-color: var(--bg-card);
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.08);
+  z-index: 5;
+}
+
+.table tr:hover td.sticky-action-col {
+  background-color: var(--bg-card-hover);
+}
+
+/* ==========================================================================
+   ELEVATED NEUMORPHIC MODALS
+   ========================================================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background-color: var(--bg-modal);
+  border: var(--neu-bevel);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neu-raised-lg);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.modal-content-lg {
+  max-width: 960px;
+}
+
+.modal-content-xl {
+  max-width: 1140px;
+}
+
+.modal-header {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-body {
+  padding: 22px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  padding: 14px 24px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  background-color: var(--bg-card);
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATIONS
+   ========================================================================== */
+
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 420px;
+  padding: 14px 18px;
+  background-color: var(--bg-card);
+  border: var(--neu-bevel);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neu-raised-lg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--text-primary);
+  font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   NEUMORPHIC UTILITIES & PLAYGROUND CLASSES
+   ========================================================================== */
+
+.neu-raised-box {
+  background: var(--bg-card);
+  box-shadow: var(--neu-raised);
+  border: var(--neu-bevel);
+  border-radius: var(--radius-lg);
+}
+
+.neu-inset-box {
+  background: var(--bg-input);
+  box-shadow: var(--neu-inset);
+  border: var(--neu-bevel);
+  border-radius: var(--radius-md);
+}
+
+.neu-convex-btn {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.05));
+  box-shadow: var(--neu-raised-sm);
+  border: var(--neu-bevel);
+}
+
+.neu-switch-track {
+  width: 52px;
+  height: 28px;
+  background: var(--bg-input);
+  box-shadow: var(--neu-inset);
+  border: var(--neu-bevel);
+  border-radius: 9999px;
+  padding: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.neu-switch-thumb {
+  width: 22px;
+  height: 22px;
+  background: var(--bg-card);
+  box-shadow: var(--neu-raised-sm);
+  border-radius: 50%;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease;
+}
+
+.neu-switch-track.active {
+  background: rgba(180, 131, 36, 0.2);
+}
+
+.neu-switch-track.active .neu-switch-thumb {
+  transform: translateX(24px);
+  background: var(--gold-primary);
+  box-shadow: 0 0 10px rgba(180, 131, 36, 0.5);
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(25px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Pulse Glow for Live badges */
+.pulse-live {
+  position: relative;
+}
+.pulse-live::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--emerald);
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.5);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: translateY(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.5); }
+  70% { transform: translateY(-50%) scale(1); box-shadow: 0 0 0 6px rgba(5, 150, 105, 0); }
+  100% { transform: translateY(-50%) scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
+}
+
+/* ==========================================================================
+   PRINT STYLES FOR GST WHOLESALE INVOICE (PRESERVES CLEAN PRINTABILITY)
+   ========================================================================== */
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    background-image: none !important;
+  }
+
+  .app-header,
+  .app-sidebar,
+  .no-print,
+  .modal-overlay:not(.print-active-modal),
+  .toast-container,
+  .btn,
+  .modal-footer {
+    display: none !important;
+  }
+
+  .print-active-modal {
+    position: static !important;
+    inset: auto !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  .modal-content {
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .print-invoice-sheet {
+    background: #ffffff !important;
+    color: #111827 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: 1px solid #9ca3af !important;
+  }
+
+  .print-invoice-sheet * {
+    color: #111827 !important;
+  }
+
+  .print-invoice-sheet th {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+    border-bottom: 2px solid #000 !important;
+  }
+}
